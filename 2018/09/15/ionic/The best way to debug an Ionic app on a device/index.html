@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.4.1" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.4.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.4.1" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '6.4.1',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="Make sure you can deploy to your device. Plug in your device. run:  1ionic cordova run &amp;lt;ios or android&amp;gt; --device -l --debug  For Android open Chrome and go to Web Inspector.Open ~ ⠇&amp;gt; More to">
+<meta property="og:type" content="article">
+<meta property="og:title" content="陈彪的博客">
+<meta property="og:url" content="http://cheenbiao.github.io/2018/09/15/ionic/The best way to debug an Ionic app on a device/index.html">
+<meta property="og:site_name" content="陈彪的博客">
+<meta property="og:description" content="Make sure you can deploy to your device. Plug in your device. run:  1ionic cordova run &amp;lt;ios or android&amp;gt; --device -l --debug  For Android open Chrome and go to Web Inspector.Open ~ ⠇&amp;gt; More to">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-05-17T08:18:30.776Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="陈彪的博客">
+<meta name="twitter:description" content="Make sure you can deploy to your device. Plug in your device. run:  1ionic cordova run &amp;lt;ios or android&amp;gt; --device -l --debug  For Android open Chrome and go to Web Inspector.Open ~ ⠇&amp;gt; More to">
+
+
+
+
+
+
+  <link rel="canonical" href="http://cheenbiao.github.io/2018/09/15/ionic/The best way to debug an Ionic app on a device/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title> | 陈彪的博客</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">陈彪的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Startseite</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archiv</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://cheenbiao.github.io/2018/09/15/ionic/The best way to debug an Ionic app on a device/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="chen biao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="陈彪的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2018-09-15 16:00:28" itemprop="dateCreated datePublished" datetime="2018-09-15T16:00:28+08:00">2018-09-15</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2018-05-17 16:18:30" itemprop="dateModified" datetime="2018-05-17T16:18:30+08:00">2018-05-17</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <ul>
+<li>Make sure you can deploy to your device.</li>
+<li>Plug in your device.</li>
+<li>run:</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ionic cordova run &lt;ios or android&gt; --device -l --debug</span><br></pre></td></tr></table></figure>
+<ul>
+<li>For Android open Chrome and go to Web Inspector.<br>Open ~ ⠇&gt; More tools &gt; Remote devices<br>Select your device and click Inspect.</li>
+<li>For iOS open Safari and enable Develop Menu.<br>Open ~ Develop &gt; my device &gt; my ip address.</li>
+</ul>
+<h3 id="Author’s-Pointless-Ramblings"><a href="#Author’s-Pointless-Ramblings" class="headerlink" title="Author’s Pointless Ramblings"></a>Author’s Pointless Ramblings</h3><p>Let’s say you’ve made the most amazeballs app. Everything is working great until you want to add some Cordova plugin you’re not too familiar with. Now your app no longer works in the browser. And if you want to test it on an emulator or device, you have to rebuild over and over again to see each change. And while JS console logging does work, debugger breakpoints do not. This can make the last leg of building and debugging your app a slow and tedious affair.</p>
+<p>Debugging apps the right way is awesome. However, it can be touchy. Like a bad aux cable that you need to hold in just the right position or it stops working. Sometimes I’m able to get things working perfectly once. Then I’ll do things in the wrong order or touch something in a funny way and it won’t work again.</p>
+<p>I spent (wasted) weeks trying to get this article perfect. I’m hoping with practice I’ll work out all the kinks, but I haven’t yet. This information is <strong>really</strong>important to developing with Ionic though and I couldn’t find it all in one place anywhere else. So this article needed to be written as is. It’s not perfect but at least it’s available. In other words, I finally had to say “<a href="https://www.youtube.com/watch?v=Qy-Y3HJNU_s" target="_blank" rel="noopener">FUCK IT, WE’LL DO IT LIVE!</a>” All that being said, once it’s all working smoothly, development is really fun and easy!</p>
+<p>I started this article 6 months ago and things have gotten a <strong>LOT</strong> better since then. XCode is a little less finicky. Ionic’s livereload is more stable. Ionic automatically whitelists your IP. And so on.</p>
+<h3 id="Tools-Required"><a href="#Tools-Required" class="headerlink" title="Tools Required"></a>Tools Required</h3><h4 id="Hardware"><a href="#Hardware" class="headerlink" title="Hardware"></a>Hardware</h4><ul>
+<li>A Mac. I guess there are ways to build iOS apps in Linux and Windows. But let’s face it, Apple has things locked up pretty tight and you’ll be swimming uphill the whole time if you don’t just use a Mac.</li>
+<li>An Android phone or <a href="https://liliputing.com/2017/05/20-android-phones-may-cheapest-ipod-touch-alternatives-available.html" target="_blank" rel="noopener">Android based iPod Touch equivalent</a>.</li>
+<li>An iPhone or iPod Touch.</li>
+<li>(optional) A tablet could be helpful but you can just adjust the screen size from developer tools in your browser.</li>
+<li>A handful of cables for each device. Save yourself a headache and just throw them out and use another one when they start to go bad. I buy them in 6 packs from Amazon.</li>
+<li>(optional) A USB splitter with power buttons for each outlet will save you a lot of plugging and unplugging. That will in turn extend the life of your cables.</li>
+</ul>
+<h4 id="Software"><a href="#Software" class="headerlink" title="Software"></a>Software</h4><ul>
+<li>Android Studio</li>
+<li>XCode</li>
+<li>Chrome</li>
+<li>Safari</li>
+</ul>
+<h3 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h3><h4 id="Before-you-Start"><a href="#Before-you-Start" class="headerlink" title="Before you Start"></a>Before you Start</h4><p>Get as far as you can without Cordova. Then get a little bit further by using <a href="https://chrome.google.com/webstore/detail/cordova-mocks/iigcccneenmnplhhfhaeahiofeeeifpn" target="_blank" rel="noopener">Cordova mocking</a>. However, you do want to test on a device early and often. While everything you’re doing may be basic web dev, there can be weird issues with JS not working in WebView.</p>
+<p>I’m going to assume you know how to build an Ionic app. If not there are plenty of tutorials, so let’s skip that. I’m also going to assume you know how to get certificates and such from Apple and that you know how to deploy to iOS and Android from the command line. If not, once again, there are tutorials.</p>
+<h4 id="Troubleshooting-Basic-Deployment-Issues"><a href="#Troubleshooting-Basic-Deployment-Issues" class="headerlink" title="Troubleshooting Basic Deployment Issues"></a>Troubleshooting Basic Deployment Issues</h4><p>First things first. You need to build and run your app from Xcode and Android Studio. If you can’t get it running in those apps, you can forget about the command line.</p>
+<p>Most iOS errors I’ve seen are caused by signing permissions. They can sometimes be fixed by unchecking and rechecking “Automatically manage signing” and then reselecting your team. Make sure your certificates and provisioning profiles are all in order.</p>
+<p>Most Android errors are caused by bad cables. If you have a problem, unplug and replug in your device. Then make sure debugging is on and your USB mode is set to PTP (photos).</p>
+<p>Don’t ever expect anything to just work. You’ll have to twiddle it, just a little bit.</p>
+<p>Ionic View, the Emulators, your device, and the browser will all have different problems for different reasons. I prefer to use just the browser and my device so I don’t spend as many hours debugging problems that don’t really exist.</p>
+<p>Once you’ve gotten everything setup and you know that you can successfully deploy your app to your device things get easier. Pick your preferred device and follow the instructions.</p>
+<h4 id="Android"><a href="#Android" class="headerlink" title="Android"></a>Android</h4><p>Plugin your Android.</p>
+<p>From the command line run:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ionic cordova run android --device -l --debug</span><br></pre></td></tr></table></figure>
+<p>Open Chrome and go to the Web Inspector. Click the three dots next to the “Close” X. Go to More tools &gt; Remote devices. If your device is plugged in, you should see it under Devices. Funny place for it. Click your device. If your server is up and running you’ll see the server’s IP. Click Inspect. A new window will open.</p>
+<h4 id="iOS"><a href="#iOS" class="headerlink" title="iOS"></a>iOS</h4><p>Plugin your iOS device.</p>
+<p>From the command line run:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ionic cordova run ios --device -l --debug</span><br></pre></td></tr></table></figure>
+<p>Open Safari and open preferences. Select the Advanced tab and click “Show Develop menu in menu bar.” Close preferences. Click Develop in the menu bar and look for your device. When you find it, hover over it and click the IP in the sub-menu. A new window will open.</p>
+<h3 id="Find-your-Bliss"><a href="#Find-your-Bliss" class="headerlink" title="Find your Bliss"></a>Find your Bliss</h3><p>In Chrome you will see a replica of your device’s screen and have access to the console where you can see errors. In Safari you can at least see the console. Try changing some text in the page you’re looking at. It will live reload the views just like if you were doing <code>ionic serve</code>. The difference is that now you can see the changes live on your device. You can also interrupt execution of your app with debugger and print output from the device to the console. Best of all, you can now experiment with your Cordova plugins with all the convenience of basic browser development. And let’s not forget that you can impress the hell out of your clients by loading their app on their device and interactively work on the design with them.</p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/09/11/ES/ES2016/" rel="next" title="test">
+                <i class="fa fa-chevron-left"></i> test
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/09/15/ionic/ionic/" rel="prev" title="">
+                 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Inhaltsverzeichnis
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Übersicht
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">chen biao</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-name">Artikel</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Author’s-Pointless-Ramblings"><span class="nav-number">1.</span> <span class="nav-text">Author’s Pointless Ramblings</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Tools-Required"><span class="nav-number">2.</span> <span class="nav-text">Tools Required</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Hardware"><span class="nav-number">2.1.</span> <span class="nav-text">Hardware</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Software"><span class="nav-number">2.2.</span> <span class="nav-text">Software</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Solution"><span class="nav-number">3.</span> <span class="nav-text">Solution</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Before-you-Start"><span class="nav-number">3.1.</span> <span class="nav-text">Before you Start</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Troubleshooting-Basic-Deployment-Issues"><span class="nav-number">3.2.</span> <span class="nav-text">Troubleshooting Basic Deployment Issues</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Android"><span class="nav-number">3.3.</span> <span class="nav-text">Android</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#iOS"><span class="nav-number">3.4.</span> <span class="nav-text">iOS</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Find-your-Bliss"><span class="nav-number">4.</span> <span class="nav-text">Find your Bliss</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">chen biao</span>
+
+  
+
+  
+</div>
+
+
+
+
+  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme – <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Muse</a> v6.4.1</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.4.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.4.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.4.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.4.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.4.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
