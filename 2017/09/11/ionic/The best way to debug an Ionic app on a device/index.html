@@ -109,15 +109,16 @@
 
 
   <meta name="description" content="Make sure you can deploy to your device. Plug in your device. run:  1ionic cordova run &amp;lt;ios or android&amp;gt; --device -l --debug  For Android open Chrome and go to Web Inspector.Open ~ ⠇&amp;gt; More to">
+<meta name="keywords" content="Ionic Angular Android IOS Cordova NodeJs">
 <meta property="og:type" content="article">
-<meta property="og:title" content="陈彪的博客">
-<meta property="og:url" content="http://cheenbiao.github.io/2018/09/15/ionic/The best way to debug an Ionic app on a device/index.html">
+<meta property="og:title" content="Ionic3 App On a Device">
+<meta property="og:url" content="http://cheenbiao.github.io/2017/09/11/ionic/The best way to debug an Ionic app on a device/index.html">
 <meta property="og:site_name" content="陈彪的博客">
 <meta property="og:description" content="Make sure you can deploy to your device. Plug in your device. run:  1ionic cordova run &amp;lt;ios or android&amp;gt; --device -l --debug  For Android open Chrome and go to Web Inspector.Open ~ ⠇&amp;gt; More to">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-05-17T08:18:30.776Z">
+<meta property="og:updated_time" content="2018-09-17T02:08:24.148Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="陈彪的博客">
+<meta name="twitter:title" content="Ionic3 App On a Device">
 <meta name="twitter:description" content="Make sure you can deploy to your device. Plug in your device. run:  1ionic cordova run &amp;lt;ios or android&amp;gt; --device -l --debug  For Android open Chrome and go to Web Inspector.Open ~ ⠇&amp;gt; More to">
 
 
@@ -125,7 +126,7 @@
 
 
 
-  <link rel="canonical" href="http://cheenbiao.github.io/2018/09/15/ionic/The best way to debug an Ionic app on a device/"/>
+  <link rel="canonical" href="http://cheenbiao.github.io/2017/09/11/ionic/The best way to debug an Ionic app on a device/"/>
 
 
 
@@ -135,7 +136,7 @@
   };
 </script>
 
-  <title> | 陈彪的博客</title>
+  <title>Ionic3 App On a Device | 陈彪的博客</title>
   
 
 
@@ -280,7 +281,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://cheenbiao.github.io/2018/09/15/ionic/The best way to debug an Ionic app on a device/">
+    <link itemprop="mainEntityOfPage" href="http://cheenbiao.github.io/2017/09/11/ionic/The best way to debug an Ionic app on a device/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="chen biao">
@@ -297,7 +298,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
+          <h1 class="post-title" itemprop="name headline">Ionic3 App On a Device
               
             
           </h1>
@@ -322,7 +323,7 @@
                 
               
 
-              <time title="Post created: 2018-09-15 16:00:28" itemprop="dateCreated datePublished" datetime="2018-09-15T16:00:28+08:00">2018-09-15</time>
+              <time title="Post created: 2017-09-11 17:24:28" itemprop="dateCreated datePublished" datetime="2017-09-11T17:24:28+08:00">2017-09-11</time>
             
 
             
@@ -339,7 +340,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Updated at: 2018-05-17 16:18:30" itemprop="dateModified" datetime="2018-05-17T16:18:30+08:00">2018-05-17</time>
+                <time title="Updated at: 2018-09-17 10:08:24" itemprop="dateModified" datetime="2018-09-17T10:08:24+08:00">2018-09-17</time>
               
             
           </span>
@@ -380,9 +381,10 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ionic cordova run &lt;ios or android&gt; --device -l --debug</span><br></pre></td></tr></table></figure>
 <ul>
 <li>For Android open Chrome and go to Web Inspector.<br>Open ~ ⠇&gt; More tools &gt; Remote devices<br>Select your device and click Inspect.</li>
-<li>For iOS open Safari and enable Develop Menu.<br>Open ~ Develop &gt; my device &gt; my ip address.</li>
+<li>For iOS open Safari and enable Develop Menu.<br>Open ~ Develop &gt; my device &gt; my ip address.<a id="more"></a>
+<h3 id="Author’s-Pointless-Ramblings"><a href="#Author’s-Pointless-Ramblings" class="headerlink" title="Author’s Pointless Ramblings"></a>Author’s Pointless Ramblings</h3></li>
 </ul>
-<h3 id="Author’s-Pointless-Ramblings"><a href="#Author’s-Pointless-Ramblings" class="headerlink" title="Author’s Pointless Ramblings"></a>Author’s Pointless Ramblings</h3><p>Let’s say you’ve made the most amazeballs app. Everything is working great until you want to add some Cordova plugin you’re not too familiar with. Now your app no longer works in the browser. And if you want to test it on an emulator or device, you have to rebuild over and over again to see each change. And while JS console logging does work, debugger breakpoints do not. This can make the last leg of building and debugging your app a slow and tedious affair.</p>
+<p>Let’s say you’ve made the most amazeballs app. Everything is working great until you want to add some Cordova plugin you’re not too familiar with. Now your app no longer works in the browser. And if you want to test it on an emulator or device, you have to rebuild over and over again to see each change. And while JS console logging does work, debugger breakpoints do not. This can make the last leg of building and debugging your app a slow and tedious affair.</p>
 <p>Debugging apps the right way is awesome. However, it can be touchy. Like a bad aux cable that you need to hold in just the right position or it stops working. Sometimes I’m able to get things working perfectly once. Then I’ll do things in the wrong order or touch something in a funny way and it won’t work again.</p>
 <p>I spent (wasted) weeks trying to get this article perfect. I’m hoping with practice I’ll work out all the kinks, but I haven’t yet. This information is <strong>really</strong>important to developing with Ionic though and I couldn’t find it all in one place anywhere else. So this article needed to be written as is. It’s not perfect but at least it’s available. In other words, I finally had to say “<a href="https://www.youtube.com/watch?v=Qy-Y3HJNU_s" target="_blank" rel="noopener">FUCK IT, WE’LL DO IT LIVE!</a>” All that being said, once it’s all working smoothly, development is really fun and easy!</p>
 <p>I started this article 6 months ago and things have gotten a <strong>LOT</strong> better since then. XCode is a little less finicky. Ionic’s livereload is more stable. Ionic automatically whitelists your IP. And so on.</p>
@@ -435,6 +437,12 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/Ionic-Angular-Android-IOS-Cordova-NodeJs/" rel="tag"># Ionic Angular Android IOS Cordova NodeJs</a>
+          
+        </div>
+      
 
       
       
@@ -444,8 +452,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/09/11/ES/ES2016/" rel="next" title="test">
-                <i class="fa fa-chevron-left"></i> test
+              <a href="/2017/09/11/ES/ES2016/" rel="next" title="ES2016基础">
+                <i class="fa fa-chevron-left"></i> ES2016基础
               </a>
             
           </div>
@@ -453,10 +461,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/09/15/ionic/ionic/" rel="prev" title="">
-                 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -526,7 +530,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-count">4</span>
                     <span class="site-state-item-name">Artikel</span>
                   </a>
                 </div>
@@ -534,6 +538,23 @@
 
               
 
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-name">Tags</span>
+                  
+                </div>
               
             </nav>
           

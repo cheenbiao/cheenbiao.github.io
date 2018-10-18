@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.4.1" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.4.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.4.1" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '6.4.1',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="ant build 例子">
+<meta name="keywords" content="ant">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ant build 例子">
+<meta property="og:url" content="http://cheenbiao.github.io/2016/09/12/Ant/ant-build/index.html">
+<meta property="og:site_name" content="陈彪的博客">
+<meta property="og:description" content="ant build 例子">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-10-18T07:34:21.753Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ant build 例子">
+<meta name="twitter:description" content="ant build 例子">
+
+
+
+
+
+
+  <link rel="canonical" href="http://cheenbiao.github.io/2016/09/12/Ant/ant-build/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>ant build 例子 | 陈彪的博客</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">陈彪的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Startseite</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archiv</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://cheenbiao.github.io/2016/09/12/Ant/ant-build/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="chen biao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="陈彪的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">ant build 例子
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2016-09-12 15:00:28" itemprop="dateCreated datePublished" datetime="2016-09-12T15:00:28+08:00">2016-09-12</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2018-10-18 15:34:21" itemprop="dateModified" datetime="2018-10-18T15:34:21+08:00">2018-10-18</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>ant build 例子</p>
+<a id="more"></a>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span><br><span class="line">&lt;project basedir=&quot;.&quot; default=&quot;usage&quot; name=&quot;antproj&quot;&gt;</span><br><span class="line">    &lt;!-- 引入配置文件 --&gt;</span><br><span class="line">    &lt;property file=&quot;build.properties&quot; /&gt;</span><br><span class="line">    &lt;!-- 配置引用属性 --&gt;</span><br><span class="line">    &lt;property name=&quot;src.dir&quot; value=&quot;src&quot; /&gt;</span><br><span class="line">    &lt;property name=&quot;java.jre.lib.dir&quot; value=&quot;C:/Program Files/Java/jdk1.8.0_161/jre/lib&quot; /&gt;</span><br><span class="line">    &lt;property name=&quot;build.dir&quot; value=&quot;build&quot; /&gt;</span><br><span class="line">    &lt;property name=&quot;lib.dir&quot; value=&quot;lib&quot; /&gt;</span><br><span class="line">    &lt;property name=&quot;lib1.dir&quot; value=&quot;WebRoot/WEB-INF/lib&quot; /&gt;</span><br><span class="line">    &lt;property name=&quot;name&quot; value=&quot;antproj&quot; /&gt;</span><br><span class="line"></span><br><span class="line">    &lt;path id=&quot;master-classpath&quot;&gt;</span><br><span class="line">        &lt;fileset dir=&quot;$&#123;java.jre.lib.dir&#125;&quot;&gt;</span><br><span class="line">            &lt;include name=&quot;*.jar&quot; /&gt;</span><br><span class="line">        &lt;/fileset&gt;</span><br><span class="line">        &lt;fileset dir=&quot;$&#123;lib.dir&#125;&quot;&gt;</span><br><span class="line">            &lt;include name=&quot;*.jar&quot; /&gt;</span><br><span class="line">        &lt;/fileset&gt;</span><br><span class="line">        &lt;fileset dir=&quot;$&#123;lib1.dir&#125;&quot;&gt;</span><br><span class="line">            &lt;include name=&quot;*.jar&quot; /&gt;</span><br><span class="line">        &lt;/fileset&gt;</span><br><span class="line">        &lt;pathelement path=&quot;$&#123;build.dir&#125;&quot; /&gt;</span><br><span class="line">    &lt;/path&gt;</span><br><span class="line"></span><br><span class="line">    &lt;target name=&quot;usage&quot;&gt;</span><br><span class="line">        &lt;!-- 输出信息到控制台中 --&gt;</span><br><span class="line">        &lt;echo message=&quot;&quot; /&gt;</span><br><span class="line">        &lt;echo message=&quot;$&#123;name&#125; build file&quot; /&gt;</span><br><span class="line">        &lt;echo message=&quot;-----------------------------------&quot; /&gt;</span><br><span class="line">        &lt;echo message=&quot;&quot; /&gt;</span><br><span class="line">        &lt;echo message=&quot;Available targets are:&quot; /&gt;</span><br><span class="line">        &lt;echo message=&quot;&quot; /&gt;</span><br><span class="line">        &lt;echo message=&quot;build     --&gt; Build the application&quot; /&gt;</span><br><span class="line">        &lt;echo message=&quot;&quot; /&gt;</span><br><span class="line">    &lt;/target&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!-- 编译生成class文件 --&gt;</span><br><span class="line">    &lt;target name=&quot;build&quot;</span><br><span class="line">            description=&quot;Compile main source tree java files&quot;&gt;</span><br><span class="line"></span><br><span class="line">        &lt;!-- 删除编译存放的classes文件 --&gt;</span><br><span class="line">        &lt;delete dir=&quot;$&#123;build.dir&#125;/classes&quot;&gt;&lt;/delete&gt;</span><br><span class="line">        &lt;!-- 新建编译存放的classes文件 --&gt;</span><br><span class="line">        &lt;mkdir dir=&quot;$&#123;build.dir&#125;/classes&quot; /&gt;</span><br><span class="line">        &lt;copy todir=&quot;$&#123;build.dir&#125;/classes&quot;&gt;</span><br><span class="line">            &lt;!-- 将项目中除会编译生成class文件的java文件之外其他类型的文件拷贝到对应的目录下，指定文件名后缀 --&gt;</span><br><span class="line">            &lt;fileset dir=&quot;$&#123;src.dir&#125;&quot;&gt;</span><br><span class="line">                &lt;include name=&quot;**/*.properties&quot; /&gt;</span><br><span class="line">                &lt;include name=&quot;**/*.xml&quot; /&gt;</span><br><span class="line">            &lt;/fileset&gt;</span><br><span class="line">        &lt;/copy&gt;</span><br><span class="line">        &lt;!-- java编译 --&gt;</span><br><span class="line">        &lt;javac destdir=&quot;$&#123;build.dir&#125;/classes&quot; source=&quot;1.7&quot; target=&quot;1.7&quot;</span><br><span class="line">               debug=&quot;true&quot; deprecation=&quot;false&quot; optimize=&quot;false&quot; failonerror=&quot;true&quot;</span><br><span class="line">               encoding=&quot;utf-8&quot;&gt;</span><br><span class="line">            &lt;src path=&quot;$&#123;src.dir&#125;&quot; /&gt;</span><br><span class="line">            &lt;!-- 编译所需要的jar包路径 --&gt;</span><br><span class="line">            &lt;classpath refid=&quot;master-classpath&quot; /&gt;</span><br><span class="line">        &lt;/javac&gt;</span><br><span class="line">    &lt;/target&gt;</span><br><span class="line"></span><br><span class="line">    &lt;target name=&quot;jar&quot; depends=&quot;build&quot;</span><br><span class="line">            description=&quot;Compress the java class files to jar&quot;&gt;</span><br><span class="line"></span><br><span class="line">        &lt;mkdir dir=&quot;$&#123;build.dir&#125;/jar&quot; /&gt;</span><br><span class="line">        &lt;delete file=&quot;$&#123;build.dir&#125;/jar/$&#123;name&#125;.jar&quot; /&gt;</span><br><span class="line">        &lt;buildnumber file=&quot;$&#123;build.dir&#125;/buildnum.txt&quot; /&gt;</span><br><span class="line">        &lt;!-- 指定时间戳 可以调用TODAY --&gt;</span><br><span class="line">        &lt;tstamp&gt;</span><br><span class="line">            &lt;format property=&quot;TODAY&quot; pattern=&quot;yyyy-MM-dd HH:mm:ss&quot; /&gt;</span><br><span class="line">        &lt;/tstamp&gt;</span><br><span class="line"></span><br><span class="line">        &lt;!-- 生成清单文件 --&gt;</span><br><span class="line">        &lt;manifest file=&quot;$&#123;build.dir&#125;/MANIFEST.MF&quot;&gt;</span><br><span class="line">            &lt;attribute name=&quot;Built-By&quot; value=&quot;$&#123;user.name&#125;&quot; /&gt;</span><br><span class="line">            &lt;attribute name=&quot;Implementation-Version&quot;</span><br><span class="line">                       value=&quot;$&#123;version.num&#125;.$&#123;build.number&#125;&quot; /&gt;</span><br><span class="line">            &lt;attribute name=&quot;Built-Date&quot; value=&quot;$&#123;TODAY&#125;&quot; /&gt;</span><br><span class="line">            &lt;attribute name=&quot;Main-Class&quot; value=&quot;com.alfred.main.Main&quot; /&gt;</span><br><span class="line">        &lt;/manifest&gt;</span><br><span class="line"></span><br><span class="line">        &lt;!-- 打包jar --&gt;</span><br><span class="line">        &lt;!-- includes 包含哪些后缀文件 空格分隔 --&gt;</span><br><span class="line">        &lt;jar destfile=&quot;$&#123;build.dir&#125;/jar/$&#123;name&#125;.jar&quot;</span><br><span class="line">             basedir=&quot;$&#123;build.dir&#125;/classes&quot;</span><br><span class="line">             includes=&quot;**/*.class **/*.properties **/*.xml&quot;</span><br><span class="line">             manifest=&quot;$&#123;build.dir&#125;/MANIFEST.MF&quot;&gt;</span><br><span class="line"></span><br><span class="line">        &lt;/jar&gt;</span><br><span class="line">    &lt;/target&gt;</span><br><span class="line"></span><br><span class="line">    &lt;target name=&quot;cleanup&quot;&gt;</span><br><span class="line">        &lt;!-- 删除编译文件夹下的所有文件（不包括编译文件夹下的文件夹）</span><br><span class="line">        &lt;delete&gt;</span><br><span class="line">            &lt;fileset dir=&quot;$&#123;build.dir&#125;/classes&quot; includes=&quot;**/*.*&quot; /&gt;</span><br><span class="line">        &lt;/delete&gt;</span><br><span class="line">         --&gt;</span><br><span class="line">        &lt;!-- 删除编译文件夹 --&gt;</span><br><span class="line">        &lt;delete dir=&quot;$&#123;build.dir&#125;/classes&quot; /&gt;</span><br><span class="line">    &lt;/target&gt;</span><br><span class="line">&lt;/project&gt;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/ant/" rel="tag"># ant</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/09/11/ionic/Ionic/" rel="prev" title="Ionic3">
+                Ionic3 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">chen biao</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">4</span>
+                    <span class="site-state-item-name">Artikel</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-name">Tags</span>
+                  
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">chen biao</span>
+
+  
+
+  
+</div>
+
+
+
+
+  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme – <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Muse</a> v6.4.1</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.4.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.4.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.4.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.4.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.4.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
