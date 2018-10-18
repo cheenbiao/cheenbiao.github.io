@@ -108,24 +108,25 @@
 
 
 
-  <meta name="description" content="dddddddddddd">
-<meta property="og:type" content="website">
-<meta property="og:title" content="MongoDB">
-<meta property="og:url" content="http://cheenbiao.github.io/MongoDB/index.html">
+  <meta name="description" content="生成证书 客户端 1、创建私钥和KeyStore keytool -genkey -alias clientprivatekey1 -keypass keypass -keystore Client_KeyStore.jks -storepass storepass -dname “CN=ty.cn,C=CN” -keyalg RSA 2、给私钥自签名 keytool -selfcert -key">
+<meta name="keywords" content="Java,WebService,Cxf">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Cxf签名">
+<meta property="og:url" content="http://cheenbiao.github.io/2016/07/21/Java/CXF-签名/index.html">
 <meta property="og:site_name" content="小橙子爸爸的博客">
-<meta property="og:description" content="dddddddddddd">
+<meta property="og:description" content="生成证书 客户端 1、创建私钥和KeyStore keytool -genkey -alias clientprivatekey1 -keypass keypass -keystore Client_KeyStore.jks -storepass storepass -dname “CN=ty.cn,C=CN” -keyalg RSA 2、给私钥自签名 keytool -selfcert -key">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-09-17T01:59:24.115Z">
+<meta property="og:updated_time" content="2018-10-18T09:29:35.914Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="MongoDB">
-<meta name="twitter:description" content="dddddddddddd">
+<meta name="twitter:title" content="Cxf签名">
+<meta name="twitter:description" content="生成证书 客户端 1、创建私钥和KeyStore keytool -genkey -alias clientprivatekey1 -keypass keypass -keystore Client_KeyStore.jks -storepass storepass -dname “CN=ty.cn,C=CN” -keyalg RSA 2、给私钥自签名 keytool -selfcert -key">
 
 
 
 
 
 
-  <link rel="canonical" href="http://cheenbiao.github.io/MongoDB/"/>
+  <link rel="canonical" href="http://cheenbiao.github.io/2016/07/21/Java/CXF-签名/"/>
 
 
 
@@ -135,7 +136,7 @@
   };
 </script>
 
-  <title>MongoDB | 小橙子爸爸的博客</title>
+  <title>Cxf签名 | 小橙子爸爸的博客</title>
   
 
 
@@ -248,22 +249,6 @@
   
     
 
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
-
   
 
   
@@ -290,44 +275,193 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://cheenbiao.github.io/2016/07/21/Java/CXF-签名/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="chen biao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小橙子爸爸的博客">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-<h1 class="post-title" itemprop="name headline">MongoDB</h1>
-
-<div class="post-meta">
-  
-  
-
-
-
-</div>
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
-          <p>dddddddddddd</p>
-
+          <h1 class="post-title" itemprop="name headline">Cxf签名
+              
+            
+          </h1>
         
-      </div>
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2016-07-21 13:27:31" itemprop="dateCreated datePublished" datetime="2016-07-21T13:27:31+08:00">2016-07-21</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2018-10-18 17:29:35" itemprop="dateModified" datetime="2018-10-18T17:29:35+08:00">2018-10-18</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <p>生成证书</p>
+<p>客户端</p>
+<p>1、创建私钥和KeyStore</p>
+<p>keytool -genkey -alias clientprivatekey1 -keypass keypass -keystore Client_KeyStore.jks -storepass storepass -dname “CN=ty.cn,C=CN” -keyalg RSA</p>
+<p>2、给私钥自签名</p>
+<p>keytool -selfcert -keystore Client_KeyStore.jks -storepass storepass -alias clientprivatekey1 -keypass keypass</p>
+<p>3、导出私钥</p>
+<p>keytool -export -alias clientprivatekey1 -file Client_PublicCert.cer -keystore Client_KeyStore.jks -storepass storepass<br><a id="more"></a><br>服务端</p>
+<p>1、创建私钥和KeyStore</p>
+<p>keytool -genkey -alias serverprivatekey1 -keypass keypass -keystore Server_KeyStore.jks -storepass storepass -dname “CN=ty.cn,C=CN” -keyalg RSA</p>
+<p>2、给私钥自签名</p>
+<p>keytool -selfcert -keystore Server_KeyStore.jks -storepass storepass -alias serverprivatekey1 -keypass keypass</p>
+<p>3、导出私钥（将客户端公钥导入到服务端TrustStroe中，将服务端公钥导入到客户端TrustStore中）</p>
+<p>keytool -export -alias serverprivatekey1 -file Server_PublicCert.cer -keystore Server_KeyStore.jks -storepass storepass</p>
+<p>keytool -import -alias clientpublickey1 -file Client_PublicCert.cer -keystore Server_TrustStore.jks -storepass storepass</p>
+<p>keytool -import -alias serverpublickey1 -file Server_PublicCert.cer -keystore Client_TrustStore.jks -storepass storepass</p>
+
       
     </div>
-    
-
-
 
     
+
     
     
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Java/" rel="tag"># Java</a>
+          
+            <a href="/tags/WebService/" rel="tag"># WebService</a>
+          
+            <a href="/tags/Cxf/" rel="tag"># Cxf</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/07/21/Java/CXF/" rel="next" title="Cxf">
+                <i class="fa fa-chevron-left"></i> Cxf
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/09/12/Ant/ant-build/" rel="prev" title="ant build 例子">
+                ant build 例子 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
   </div>
 
 

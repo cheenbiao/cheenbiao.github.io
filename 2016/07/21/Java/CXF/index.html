@@ -1,0 +1,1156 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.4.1" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.4.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.4.1" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '6.4.1',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="##什么是WebService##官方解释：它是一种构建应用程序的普遍模型,可以在任何支持网络通信的操作系统中实施运行;它是一种新的web应用程序分支，是自包含、自描述、模块化的应用，可以发布、定位、通过web调用。WebService是一个应用组件,它逻辑性的为其他应用程序提供数据与服务.各应用程序通过网络协议和规定的一些标准数据格式（Http，XML，Soap)来访问WebService,通过">
+<meta name="keywords" content="Java,WebService,Cxf">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Cxf">
+<meta property="og:url" content="http://cheenbiao.github.io/2016/07/21/Java/CXF/index.html">
+<meta property="og:site_name" content="小橙子爸爸的博客">
+<meta property="og:description" content="##什么是WebService##官方解释：它是一种构建应用程序的普遍模型,可以在任何支持网络通信的操作系统中实施运行;它是一种新的web应用程序分支，是自包含、自描述、模块化的应用，可以发布、定位、通过web调用。WebService是一个应用组件,它逻辑性的为其他应用程序提供数据与服务.各应用程序通过网络协议和规定的一些标准数据格式（Http，XML，Soap)来访问WebService,通过">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://pic002.cnblogs.com/images/2011/117472/2011080413283254.png">
+<meta property="og:updated_time" content="2018-10-18T09:29:20.205Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Cxf">
+<meta name="twitter:description" content="##什么是WebService##官方解释：它是一种构建应用程序的普遍模型,可以在任何支持网络通信的操作系统中实施运行;它是一种新的web应用程序分支，是自包含、自描述、模块化的应用，可以发布、定位、通过web调用。WebService是一个应用组件,它逻辑性的为其他应用程序提供数据与服务.各应用程序通过网络协议和规定的一些标准数据格式（Http，XML，Soap)来访问WebService,通过">
+<meta name="twitter:image" content="http://pic002.cnblogs.com/images/2011/117472/2011080413283254.png">
+
+
+
+
+
+
+  <link rel="canonical" href="http://cheenbiao.github.io/2016/07/21/Java/CXF/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Cxf | 小橙子爸爸的博客</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">小橙子爸爸的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Startseite</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />Tags</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archiv</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://cheenbiao.github.io/2016/07/21/Java/CXF/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="chen biao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小橙子爸爸的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Cxf
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2016-07-21 13:27:31" itemprop="dateCreated datePublished" datetime="2016-07-21T13:27:31+08:00">2016-07-21</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2018-10-18 17:29:20" itemprop="dateModified" datetime="2018-10-18T17:29:20+08:00">2018-10-18</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>##什么是WebService##<br>官方解释：它是一种构建应用程序的普遍模型,可以在任何支持网络通信的操作系统中实施运行;它是一种新的web应用程序分支，是自包含、自描述、模块化的应用，可以发布、定位、通过web调用。WebService是一个应用组件,它逻辑性的为其他应用程序提供数据与服务.各应用程序通过网络协议和规定的一些标准数据格式（Http，XML，Soap)来访问WebService,通过WebService内部执行得到所需结果.Web Service可以执行从简单的请求到复杂商务处理的任何功能。一旦部署以后，其他WebService应用程序可以发现并调用它部署的服务。</p>
+<p><strong>SOAP（Simple Object Access Protocol）</strong>：简单对象访问协议是在分散或分布式的环境中交换信息并执行远程过程调用的轻量级协议，是一个基于XML的协议。使用SOAP，不用考虑任何特定的传输协议（最常用的还是HTTP协议），可以允许任何类型的对象或代码，在任何平台上，以任何一种语言相互通信。</p>
+<p><strong>WSDL：Web Services Description Language</strong>的缩写，是一个用来描述Web服务和说明如何与Web服务通信的XML语言。为用户提供详细的接口说明书。</p>
+<pre><code class="xml">
+&lt;message> web service 使用的消息
+&lt;types> web service 使用的数据类型
+&lt;binding> web service 使用的通信协议
+一个 WSDL 文档的主要结构是类似这样的：
+&lt;definitions&gt;
+&lt;types&gt;
+definition of types........
+&lt;/types&gt;
+&lt;message&gt;
+definition of a message....
+&lt;/message&gt;
+&lt;portType&gt;
+definition of a port.......
+&lt;/portType&gt;
+&lt;binding&gt;
+definition of a binding....
+&lt;/binding&gt;
+&lt;/definitions&gt;
+</code></pre>
+
+<a id="more"></a>
+<ul>
+<li><strong>Types</strong> - 数据类型定义的容器，它使用某种类型系统(一般地使用XML Schema中的类型系统)。</li>
+<li><strong>Message</strong> - 通信消息的数据结构的抽象类型化定义。使用Types所定义的类型来定义整个消息的数据结构。</li>
+<li><strong>Operation</strong> - 对服务中所支持的操作的抽象描述，一般单个Operation描述了一个访问入口的请求/响应消息对。</li>
+<li><strong>PortType</strong> - 对于某个访问入口点类型所支持的操作的抽象集合，这些操作可以由一个或多个服务访问点来支持。</li>
+<li><strong>Binding</strong> - 特定端口类型的具体协议和数据格式规范的绑定。</li>
+<li><strong>Port</strong> - 定义为协议/数据格式绑定与具体Web访问地址组合的单个服务访问点。</li>
+<li><strong>Service</strong> - 相关服务访问点的集合<blockquote>
+<hr>
+</blockquote>
+#CXF#</li>
+</ul>
+<p>##关于CXF##<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Apache&nbsp; CXF = Celtix + XFire，Apache CXF 的前身叫 Apache CeltiXfire，现在已经正式更名为 Apache CXF 了，以下简称为 CXF。CXF 继承了 Celtix 和 XFire 两大开源项目的精华，提供了对 JAX-WS 全面的支持，并且提供了多种 Binding 、DataBinding、Transport 以及各种 Format 的支持，并且可以根据实际项目的需要，采用代码优先（Code First）或者 WSDL 优先（WSDL First）来轻松地实现 Web Services 的发布和使用。<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Apache CXF 是一个开源的 Services 框架，CXF 帮助您利用 Frontend 编程 API 来构建和开发 Services ，像 JAX-WS 。这些 Services 可以支持多种协议，比如：SOAP、XML/HTTP、RESTful HTTP 或者 CORBA ，并且可以在多种传输协议上运行，比如：HTTP、JMS 或者 JBI，CXF 大大简化了 Services 的创建，同时它继承了 XFire 传统，一样可以天然地和 Spring 进行无缝集成。</p>
+<p>##特性##<br>CXF 包含了大量的功能特性，但是主要集中在以下几个方面：</p>
+<ol>
+<li>支持 Web Services 标准：CXF 支持多种 Web Services 标准，包含 SOAP、Basic Profile、WS-Addressing、WS-Policy、WS-ReliableMessaging 和 WS-Security。</li>
+<li>Frontends：CXF 支持多种“Frontend”编程模型，CXF 实现了 JAX-WS API （遵循 JAX-WS 2.0 TCK 版本），它也包含一个“simple frontend”允许客户端和 EndPoint 的创建，而不需要 Annotation 注解。CXF 既支持 WSDL 优先开发，也支持从 Java 的代码优先开发模式。</li>
+<li>容易使用： CXF 设计得更加直观与容易使用。有大量简单的 API 用来快速地构建代码优先的 Services，各种 Maven 的插件也使集成更加容易，支持 JAX-WS API ，支持 Spring 2.0 更加简化的 XML 配置方式，等等。</li>
+<li>支持二进制和遗留协议：CXF 的设计是一种可插拨的架构，既可以支持 XML ，也可以支持非 XML 的类型绑定，比如：JSON 和 CORBA。</li>
+</ol>
+<p>##标准##</p>
+<ul>
+<li>支持 JAX-WS、 JAX-WSA、JSR-181 和 SAAJ；</li>
+<li>支持 SOAP 1.1、1.2、WS-I BasicProfile、WS-Security、WS-Addressing、WS-RM 和 WS-Policy；</li>
+<li>支持 WSDL 1.1 、2.0；</li>
+<li>支持 MTOM；</li>
+</ul>
+<p>##数据绑定##</p>
+<p>CXF支持的数据绑定技术有</p>
+<ul>
+<li>Aegis (2.1)</li>
+<li>Aegis Databinding (2.0.x)</li>
+<li>JAXB</li>
+<li>MTOM Attachments with JAXB</li>
+<li>SDO</li>
+<li>XMLBeans</li>
+</ul>
+<p>CXF默认使用JAXB</p>
+<p><strong>1. Aegis</strong></p>
+<p>Aegis 是一个数据绑定 API，用于在 Java 对象与 XML 文档之间执行映射。CXF 框架源自 XFire 项目，而 Aegis 是该项目的基础。XFire 现在也称为 CXF 。在使用或不使用注释的情况下，Aegis 都允许开发人员通过使用外部映射文件来执行数据绑定 。外部映射文件使开发人员能够定制数据映射，从而获得对映射派生方式的更多控制。外部映射文件配置为开发人员提供了许多灵活性并满足了数据绑定需求。对 Web 服务而言，数据也可称为消息，是方法参数或返回类型的一部分。映射文件允许定制 bean、方法名称、方法参数和返回类型。Aegis 还可以在 CXF 环境以外的单独应用程序中使用。</p>
+<p><em>Aegis的好处</em></p>
+<ul>
+<li>Aegis 使用外部映射文件为开发人员提供更多的控制权和灵活性，使他们能够根据其项目需要来定制映射。</li>
+<li>Aegis 可以保持 Java 类的整洁。与 JAXB 不同的是，无需提供注释便可满足数据绑定需求。用户可以使用外部映射文件控制绑定。</li>
+<li>Aegis 可以对传入的消息或请求执行模式验证。该验证功能是随最新版的 CXF 发布的 Woodstox 4.x Stax 解析器一起提供的一项功能。</li>
+<li>Aegis 允许您选择是否使用注释。因此，如果您不想使用外部映射文件，那么可以使用注释来满足您的数据绑定需求。</li>
+<li>Aegis 可以在 CXF 环境以外的地方单独使用。它是一种更为独立的数据绑定工具，是 XFire 项目的基本组成部分。</li>
+<li>非 Aegis 客户端可以使用 Aegis 支持的 Web 服务。客户端应用程序可以在使用 JAXB 或其他任何数据绑定工具的同时调用基于 Aegis 的服务。</li>
+<li>借助 Aegis，您可以在服务级别上指定绑定。与 JAXB 不同的是，使用 JAXB 时更多是在属性和参数级别上指定绑定。Aegis 可能允许指定一般的绑定。例如，在服务级别上定义的 nillable=false 将确保所有属性或参数都不允许使用 null。</li>
+</ul>
+<p><a href="http://www.ibm.com/developerworks/cn/webservices/ws-apachecxf/" title="Aegis" target="_blank" rel="noopener">http://www.ibm.com/developerworks/cn/webservices/ws-apachecxf/</a></p>
+<p><strong>2. JAXB</strong></p>
+<p>JAXB（Java Architecture for XML Binding) 是一个业界的标准，是一项可以根据XML Schema产生Java类的技术。该过程中，JAXB也提供了将XML实例文档反向生成Java对象树的方法，并能将Java对象树的内容重新写到XML实例文档。从另一方面来讲，JAXB提供了快速而简便的方法将XML模式绑定到Java表示，从而使得Java开发者在Java应用程序中能方便地结合XML数据和处理函数</p>
+<p><strong>3. MTOM</strong></p>
+<p>MTOM是一个标准的服务，让你的服务传输二进制数据更方便，更有效率。如果二进制是xml文档的一部分，它需要base64编码。当MTOM在一个服务上启用时，它可能需要二进制数据且通常是xml文档的一部分，并为它创建一个附件。</p>
+<p><a href="http://cxf.apache.org/docs/mtom-attachments-with-jaxb.html" title="MTOM" target="_blank" rel="noopener">http://cxf.apache.org/docs/mtom-attachments-with-jaxb.html</a></p>
+<p><strong>4. SDO 服务数据对象</strong></p>
+<p><a href="http://cxf.apache.org/docs/sdo.html" title="SDO" target="_blank" rel="noopener">http://cxf.apache.org/docs/sdo.html</a></p>
+<p><a href="http://www.ibm.com/developerworks/cn/java/j-sdo/" target="_blank" rel="noopener">http://www.ibm.com/developerworks/cn/java/j-sdo/</a></p>
+<p>##服务端发布##<br><strong>1. JAXWS</strong></p>
+<pre><code class="java">
+//通过类发布
+System.out.println("Starting Server");
+HelloWorldImpl implementor = new HelloWorldImpl();
+JaxWsServerFactoryBean svrFactory = new JaxWsServerFactoryBean();
+svrFactory.setServiceClass(HelloWorld.class);
+svrFactory.setAddress("http://localhost:9000/helloWorld");
+svrFactory.setServiceBean(implementor);
+svrFactory.getInInterceptors().add(new LoggingInInterceptor());
+svrFactory.getOutInterceptors().add(new LoggingOutInterceptor());
+svrFactory.create();
+</code></pre>
+<pre><code class="xml">
+//cxf-servlet.xml
+&lt;beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jaxws="http://cxf.apache.org/jaxws" xmlns:soap="http://cxf.apache.org/bindings/soap" xsi:schemaLocation=" http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://cxf.apache.org/bindings/soap http://cxf.apache.org/schemas/configuration/soap.xsd http://cxf.apache.org/jaxws http://cxf.apache.org/schemas/jaxws.xsd">
+    &lt;jaxws:server id="jaxwsService" serviceClass="demo.hw.server.HelloWorld" address="/hello_world"&gt;
+    &lt;jaxws:serviceBean>
+    &lt;bean class="demo.hw.server.HelloWorldImpl"/&gt;
+    &lt;/jaxws:serviceBean&gt;
+    &lt;/jaxws:server&gt;
+    &lt;/beans&gt;
+
+
+<pre><code class="java">
+//POJO
+HelloWorldImpl helloworldImpl = new HelloWorldImpl();
+ServerFactoryBean svrFactory = new ServerFactoryBean();
+svrFactory.setServiceClass(HelloWorld.class);
+svrFactory.setAddress("http://localhost:9000/Hello");
+svrFactory.setServiceBean(helloworldImpl);
+svrFactory.getInInterceptors().add(new GZIPInInterceptor());
+svrFactory.getOutInterceptors().add(new GZIPOutInterceptor());
+//svrFactory.getServiceFactory().setDataBinding(new AegisDatabinding());
+svrFactory.create();
+</code></pre>
+##客户端##
+**使用QName**
+<pre><code class="java">
+//1 nameSpaceUri 为：wsdl:definitions中的targetNamespace的值
+String nameSpaceUri = "http://service.spring.ty/";
+//serviceName 为： wdsl中的HelloWorld对对应的portType 的name
+QName serviceName = new QName(nameSpaceUri,"HelloWorld"); 
+//protName 为wdsl中的HelloWorld对应的portType 的name + “Port”即HelloWorldPort
+QName portName = new QName(nameSpaceUri,"HelloWorldPort");
+
+Service service = Service.create(serviceName);     
+String endpointAddress = "http://localhost:8080/cxf-server3/services/HelloWorldServer3";  
+service.addPort(portName, SOAPBinding.SOAP11HTTP_BINDING, endpointAddress);  
+HelloWorld clientService = service.getPort(HelloWorld.class);  
+String result = clientService.sayHello("hello jack");  
+System.out.println(result);
+</code></pre>
+**使用ClientProxyFactoryBean**
+<pre><code class="java">
+//接口HelloWorld上不能有@WebService,@WebParm等标注，否则调用出错(Unmarshalling Error)
+ClientProxyFactoryBean factory = new ClientProxyFactoryBean();
+factory.getServiceFactory().setDataBinding(new AegisDatabinding());
+HelloWorld client = factory.create(HelloWorld.class);
+</code></pre>
+
+<p><strong>使用JaxWsProxyFactoryBean</strong></p>
+<pre><code class="java">
+JaxWsProxyFactoryBean factoryBean = new JaxWsProxyFactoryBean();  
+factoryBean.setAddress("http://localhost:8080/cxf-server3/services/HelloWorldServer3");  
+factoryBean.setServiceClass(HelloWorld.class);  
+Object obj = factoryBean.create();  
+HelloWorld client = (HelloWorld) obj;  
+System.out.println(client.sayHello(System.getProperty("user.name")));
+</code></pre>
+
+
+<p>##Webservice Restful##<br>java</p>
+<pre><code class="java">
+@Path("/customerrestservice")
+public class CustomerRestServiceImpl{
+    @GET
+    @Path("/bean/{id}")
+    @Produces({ MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON })
+    public Customer getCustomer(String id) {
+        Customer c = customers.get(123);
+        return c;
+    }
+}
+
+//bean 需添加注解@XmlRootElement(name = "Customer")
+//指明xml文档为Customer,如果使用注解 @Produces("application/json")，那么JAXB将转换为JSON文本作为响应
+</code></pre>
+maven
+<pre><code class="xml">
+&lt;dependency&gt;
+    &lt;groupId&gt;javax.ws.rs&lt;/groupId&gt;
+    &lt;artifactId&gt;javax.ws.rs-api&lt;/artifactId&gt;
+    &lt;version&gt;2.0.1&lt;/version&gt;
+&lt;/dependency&gt;
+
+&lt;dependency&gt;
+    &lt;groupId&gt;org.apache.cxf&lt;/groupId&gt;
+    &lt;artifactId&gt;cxf-rt-rs-extension-providers&lt;/artifactId&gt;
+    &lt;version&gt;3.1.2&lt;/version&gt;
+&lt;/dependency&gt;
+
+&lt;dependency&gt;
+    &lt;groupId&gt;org.apache.cxf&lt;/groupId&gt;
+    &lt;artifactId&gt;cxf-rt-transports-http-jetty&lt;/artifactId&gt;
+    &lt;version&gt;${cxf.version}&lt;/version&gt;
+&lt;/dependency&gt;
+
+&lt;dependency&gt;
+    &lt;groupId&gt;org.apache.cxf&lt;/groupId&gt;
+    &lt;artifactId&gt;cxf-rt-frontend-jaxrs&lt;/artifactId&gt;
+    &lt;version&gt;{cxf.version}&lt;/version&gt;
+&lt;/dependency&gt;
+
+&lt;dependency&gt;
+    &lt;groupId&gt;org.codehaus.jettison&lt;/groupId&gt;
+    &lt;artifactId&gt;jettison&lt;/artifactId&gt;
+    &lt;version&gt;1.3.7&lt;/version&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;commons-httpclient&lt;/groupId&gt;
+    &lt;artifactId&gt;commons-httpclient&lt;/artifactId&gt;
+    &lt;version&gt;3.1&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre>
+spring
+<pre><code class="xml">
+&lt;beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xmlns:jaxws="http://cxf.apache.org/jaxws"
+    xmlns:jaxrs="http://cxf.apache.org/jaxrs"
+    xsi:schemaLocation=" http://www.springframework.org/schema/beans 
+    http://www.springframework.org/schema/beans/spring-beans.xsd 
+    http://cxf.apache.org/jaxws 
+    http://cxf.apache.org/schemas/jaxws.xsd
+    http://cxf.apache.org/jaxrs
+    http://cxf.apache.org/schemas/jaxrs.xsd"&gt;
+&lt;import resource="classpath:META-INF/cxf/cxf.xml" />
+&lt;import resource="classpath:META-INF/cxf/cxf-servlet.xml" /&gt;
+&lt;bean id="customerrestservice" class="ty.spring.service.impl.CustomerRestServiceImpl" /&gt;
+&lt;jaxrs:server id="restServiceContainer" address="/rest"&gt;
+    &lt;jaxrs:serviceBeans&gt;
+        &lt;ref bean="customerrestservice" /&gt;
+    &lt;/jaxrs:serviceBeans&gt;
+    &lt;jaxrs:extensionMappings&gt;
+        &lt;entry key="json" value="application/json" /&gt;
+        &lt;entry key="xml" value="application/xml" /&gt;
+    &lt;/jaxrs:extensionMappings&gt;
+    &lt;jaxrs:languageMappings&gt;
+        &lt;entry key="en" value="en-gb" /&gt;
+    &lt;/jaxrs:languageMappings&gt;
+&lt;/jaxrs:server&gt;
+&lt;bean&gt;
+</code></pre>
+[CXF WITH JSON](http://www.javatips.net/blog/2012/07/apache-cxf-with-jackson)
+
+[RESTFUL WEBSERVICE](http://www.javacodegeeks.com/2013/07/developing-restful-services-using-apache-cxf.html)
+
+
+[DOWNLOAD WITH CXF REST](http://www.javatips.net/blog/2013/06/download-text-file-using-cxf-rest-jax-rs)
+
+[UPLOAD WITH CXF REST](http://www.javatips.net/blog/2013/05/cxf-rest-file-upload)
+
+##CXF TOOl##
+###java2wsdl/wsdl2java with ant###
+<pre><code class="xml">
+&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;project name="cxf build" basedir="."&gt;  
+    &lt;property name="cxf.home" location ="C:/apache-cxf-3.1.2"/&gt;  
+    &lt;property name="src.dir" value="${basedir}/src/main/java" /&gt;  
+    &lt;property name="build-gen" location="${basedir}/gen"/&gt;  
+    &lt;property name="wsdl-name" value="CustomerService.wsdl"/&gt;  
+    &lt;property name="wsdl-path" value="${src.dir}/${wsdl-name}"/&gt;  
+
+    &lt;path id="cxf.classpath"&gt;  
+        &lt;pathelement location="${basedir}/target/classes"/&gt;    
+        &lt;fileset dir="${cxf.home}/lib"&gt;  
+            &lt;include name="*.jar"/&gt;  
+        &lt;/fileset&gt;  
+    &lt;/path&gt;  
+
+    &lt;target name="cxfJavaToWSDL"&gt;  
+        &lt;echo message="Running Java2WSDL task"/&gt;  
+        &lt;delete quiet="true" dir="${build-gen}"/&gt;  
+        &lt;delete quiet="true" file="${wsdl-path}"/&gt;  
+        &lt;mkdir dir="${build-gen}"/&gt;  
+        &lt;java classname="org.apache.cxf.tools.java2ws.JavaToWS" fork="true"&gt;  
+            &lt;arg value="-o"/&gt;  
+            &lt;arg value="CustomerService.wsdl"/&gt;  
+            &lt;arg value="-d"/&gt;  
+            &lt;arg value="${build-gen}"/&gt;  
+            &lt;arg value="-servicename"/&gt;  
+            &lt;arg value="CustomerService"/&gt;  
+            &lt;arg value="-wsdl"/&gt;  
+            &lt;arg value="demo.cxf.server.CustomerService"/&gt;  
+            &lt;sysproperty key="file.encoding" value="UTF-8" /&gt;
+            &lt;classpath&gt;  
+                &lt;path refid="cxf.classpath"/&gt;  
+            &lt;/classpath&gt;  
+        &lt;/java&gt;  
+
+        &lt;move todir="${src.dir}" preservelastmodified="true"&gt;  
+            &lt;fileset dir="${build-gen}"&gt;  
+                &lt;include name="**/*.wsdl" /&gt;  
+            &lt;/fileset&gt;  
+        &lt;/move&gt;  
+    &lt;/target&gt;  
+
+    &lt;target name="cxfWSDLToJavaClient"&gt;  
+        &lt;echo message="Running WSDL2Java task"/&gt;  
+        &lt;delete quiet="true" dir="${build-gen}"/&gt;  
+        &lt;mkdir dir="${build-gen}"/&gt;  
+        &lt;java classname="org.apache.cxf.tools.wsdlto.WSDLToJava" fork="true"&gt;  
+            &lt;arg value="-client"/&gt;  
+            &lt;arg value="-d"/&gt;  
+            &lt;arg value="${build-gen}/src"/&gt;  
+            &lt;arg value="${wsdl-path}"/&gt;  
+            &lt;sysproperty key="file.encoding" value="UTF-8" /&gt;
+            &lt;classpath&gt;  
+                &lt;path refid="cxf.classpath"/&gt;  
+            &lt;/classpath&gt;  
+        &lt;/java&gt;  
+    &lt;/target&gt;  
+
+    &lt;target name="cxfWSDLToJavaServer"&gt;  
+            &lt;echo message="Running WSDL2Java task"/&gt;  
+            &lt;delete quiet="true" dir="${build-gen}"/&gt;  
+            &lt;mkdir dir="${build-gen}"/&gt;  
+            &lt;java classname="org.apache.cxf.tools.wsdlto.WSDLToJava" fork="true"&gt;  
+                &lt;arg value="-server"/&gt;  
+                &lt;arg value="-d"/&gt;  
+                &lt;arg value="${build-gen}/src"/&gt;  
+                &lt;arg value="${wsdl-path}"/&gt;  
+                &lt;sysproperty key="file.encoding" value="UTF-8" /&gt;
+                &lt;classpath&gt;  
+                    &lt;path refid="cxf.classpath"/&gt;  
+                &lt;/classpath&gt;  
+            &lt;/java&gt;  
+        &lt;/target&gt;
+&lt;/project&gt;
+</code></pre>
+同时也提供了maven的插件与命令行，使用ant比较方便
+
+<pre><code class="xml">
+&lt;build&gt;
+&lt;plugins&gt;
+    &lt;plugin&gt;
+        &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;
+        &lt;artifactId&gt;maven-compiler-plugin&lt;/artifactId&gt;
+        &lt;configuration&gt;
+            &lt;source&gt;1.7&lt;/source&gt;
+            &lt;target&gt;1.7&lt;/target&gt;
+        &lt;/configuration&gt;
+    &lt;/plugin&gt;
+
+    &lt;plugin&gt;
+        &lt;groupId&gt;org.apache.cxf&lt;/groupId&gt;
+        &lt;artifactId&gt;cxf-java2ws-plugin&lt;/artifactId&gt;
+        &lt;version&gt;${cxf.version}&lt;/version&gt;
+        &lt;dependencies&gt;
+            &lt;dependency&gt;
+                &lt;groupId&gt;org.apache.cxf&lt;/groupId&gt;
+                &lt;artifactId&gt;cxf-rt-frontend-jaxws&lt;/artifactId&gt;
+                &lt;version&gt;${cxf.version}&lt;/version&gt;
+            &lt;/dependency&gt;
+            &lt;dependency&gt;
+                &lt;groupId&gt;org.apache.cxf&lt;/groupId&gt;
+                &lt;artifactId&gt;cxf-rt-frontend-simple&lt;/artifactId&gt;
+                &lt;version&gt;${cxf.version}&lt;/version&gt;
+            &lt;/dependency&gt;
+        &lt;/dependencies&gt;
+        &lt;executions&gt;
+            &lt;execution&gt;
+                &lt;id&gt;process-classes&lt;/id&gt;
+                &lt;phase&gt;process-classes&lt;/phase&gt;
+                &lt;goals&gt;
+                    &lt;goal&gt;java2ws&lt;/goal&gt;
+                &lt;/goals&gt;
+            &lt;/execution&gt;
+        &lt;/executions&gt;
+        &lt;configuration&gt;
+            &lt;className&gt;demo.cxf.server.CustomerService&lt;/className&gt;
+            &lt;className&gt;demo.cxf.server.OrderService&lt;/className&gt;
+            &lt;genWsdl&gt;true&lt;/genWsdl&gt;
+            &lt;verbose&gt;true&lt;/verbose&gt;
+            &lt;argline&gt;-createxsdimports&lt;/argline&gt;
+        &lt;/configuration&gt;
+    &lt;/plugin&gt;
+&lt;/plugins&gt;
+&lt;/build&gt;
+</code></pre>
+
+
+
+<p>##安全##<br>CXF支持<br><br>WS-Addressing<br><br>WS-Discovery<br><br>WS-MetadataExchange(元数据交换)<br><br>WS-Policy<br><br>WS-ReliableMessaging<br><br>WS-SecureConversation<br><br>WS-Security<br><br>WS-SecurityPolicy<br><br>WS-Trust</p>
+<p><strong>WS-Addressing(webservice寻址)</strong></p>
+<p>虽说SOAP协议定义了在Web Services之间传递消息的规范格式，在此基础上Services之间的消息交换将不再受到各种不同底层(传输层)的传输协议的影响，但是在SOAP协议中并没有定义如何寻址一个Web Services，寻址是通过底层传输协议的连接定义的。早先时候基于大多数的Web Services都是通过Http协议访问这一前提下，采用同步 request-response 的消息交换模式并不存在寻址的问题，因为 http 协议的特性，回复消息直接通过 http 请求本身的连接返回了。但是现实中 SOA 要面临的场景要复杂得多，光靠 http 解决不了所有的问题。这些问题可能包括：(1)分离的消息发送者和回复的接收者；(2)消息处理过程跨越多协议、多平台。</p>
+<p>SOAP 消息头的结构：<br><br><br>　　　　MessageID ：标识一个消息的 UUID 编号；<br><br><br>　　　　RelatesTo ：回复的消息所应答的原始消息的 MessageID；<br><br><br>　　　　To ：消息要发往的 URI ；<br><br><br>　　　　Reference Parameters ：这是可选项，与 To 一起构成对 Endpoint Reference 的描述；<br><br><br>　　　　Action ：定义了服务中处理消息方法，即WSDL中定义的操作的 Action ；<br><br><br>　　　　From ：发送消息的 URL；<br><br><br>　　　　ReplyTo ：回复消息发往的 URL；通过该项可以指定一个不同于 From 的地址，以指示服务将回复消息发往该地址；<br><br><br>　　　　FaultTo ：消息处理失败时回复错误消息发往的 URL ；<br><img src="http://pic002.cnblogs.com/images/2011/117472/2011080413283254.png" alt=""></p>
+<p><strong>WS-Discovery(Web Services Dynamic Discovery 客户端驱动探测服务)</strong> </p>
+<p>WS-Discovery是在2008年才加入了OASIS标准。WS-Discovery在标准被定义为Web Service Dynamic Discovery，其目的是为定位服务定义Discovery协议，主要应用在为客户端动态搜索一个或多个目标服务。OASIS为WS-Discovery提供了两种操作模式：ad hoc和managed模式。<br>ad hoc模式根据类型在托管目标服务的范围内查找目标服务。客户端会以多播的形式发送一个Probe（探测）消息，如果服务匹配该信息，则以单播方式直接将响应发送到客户端。为了能够根据名称定位目标服务，客户端会以相同的多播组发送一个Resolve（解析）消息，同样的，匹配该消息的服务会直接以单播方式响应客户端。</p>
+<p><strong>WS-Policy(Web Services Policy)</strong></p>
+<p>此标准针对这样的开发人员：希望在环境中公开自己的服务，并使用定义允许这些 Web 服务如何与其他客户机和服务进行交互的策略。术语 WS-Policy 指定义治理（例如传输方法）和安全性（如加密级别）的框架。</p>
+<p>WS-Policy 与 WS-Security 紧密相关。事实上，存在 WS-SecurityPolicy 规范，其中包含能包括在 WS-Policy 文档中的多个断言；因为可采用多种方法实现安全性，因此需要存在针对这些类型的策略，以便能将其包含在策略中。通过创建要求特定类型的加密、签名或要求时间戳的策略，可帮助巩固 Web 服务的安全性，因为除非客户机遵循 Web 服务给定的策略，否则任何传入消息都不能从定义了策略的安全 Web 服务获取所需的响应。</p>
+<p><strong>WS-ReliableMessaging</strong></p>
+<p>WS-RM 是一个 OASIS 标准，即使目标端点暂时不可用或网络连接失败，它也可以使两个系统可靠地发送 SOAP 消息给对方，并确保交付。WS-RM 定义了在没有成功交付消息的情况下应如何再次发送消息，从而克服这些问题，它可以防止将重复的消息传输到目标端点。</p>
+<p><a href="http://www.ibm.com/developerworks/cn/websphere/library/techarticles/1202_haxby/1202_haxby.html" target="_blank" rel="noopener">http://www.ibm.com/developerworks/cn/websphere/library/techarticles/1202_haxby/1202_haxby.html</a><br><br><a href="http://cxf.apache.org/docs/ws-reliablemessaging.html" target="_blank" rel="noopener">http://cxf.apache.org/docs/ws-reliablemessaging.html</a></p>
+<p><strong>WS-Security</strong></p>
+<p>Microsoft、IBM和VeriSign开发出了WS-Security后，解决了保护消息的主要问题：证书的交换、消息的完整性和消息的机密性。<br>WS-Security允许两个实体在消息内部(在消息的SOAP标题中)交换他们的安全证书。WS-Security的主要优点是，它不需要使用特定类型的证书集，而允许使用任意类型的证书。另外，由于可以通过多个路由器发送消息，消息在到达最终的目的地之前，还可以从一处多次发送到另一处，因此必须确保消息在传输过程中不被篡改。消息从一个SOAP路由器传送到另一个SOAP路由器时，这些SOAP节点可以在消息中增删内容。SOAP节点信息可能落入有恶意的团体手中。因此，最好加密消息的内容。当消息到达指定的接收器时，应用程序可以使用密钥解密消息，以便读取其内容。</p>
+<p>如果您要使用 WS-Security，请考虑一下您服务的数据量。使用 WS-Security 进行加密和签名之后，服务的性能会大打折扣 — 但是，如果您的服务每小时只交换少量消息，则硬件需求方面的差异是可以忽略不计的。</p>
+<p>对于性能无法折衷的场景，您可以通过合理地安全性选项来帮助最大限度地减小性能影响。某些 Web 服务框架倾向于生成 “所有上述” 安全性配置，它们使用 WS-Security 实现全面的消息签名和加密，并 通过 SSL 连接发送它们。如果您确实希望提供最高级别的保护，而对性能毫不关心，那么这种方式没有问题。但是，在大多数情况下，更有意义的方法是使用 SSL（如果只关心为在客户机和单一服务器之间传输的信息提供保护）或者 WS-Security 加密（如果需要跨多个服务器传递数据，同时在它们经过中间系统时保护机密信息的安全。</p>
+<p>对于客户机和服务器之间需要长时间交换消息的情况工（甚至通过中间系统访问其一），您还可以使用 WS-SecureConversation 提供相对于使用证书的 WS-Security 更好的性能。WS-SecureConversation 特别适合相对较小的消息之间的交换，其中，证书和非对称加密方面增加的开销与消息主体的实际（对称）加密相比是相当可观的。</p>
+<p>降低 WS-Security 性能成本的另一种方法是将安全性处理转嫁给专门的硬件来完成。一些 XML 网关工具提供了对 WS-Security 加密和签名的加速处理。您可以使用这些工具来处理大开销的 WS-Security，同时处理应用程序中的纯 SOAP。显然，您需要确保在向服务器添加工具时不会打开任何潜在的安全性漏洞。并且，您应该在购买之前测试工具所带来的性能提升。但是，至少从理论上来说，这种模式确实能实现一些性能提升。<br><a href="http://www.ibm.com/developerworks/cn/webservices/ws-security/" target="_blank" rel="noopener">http://www.ibm.com/developerworks/cn/webservices/ws-security/</a></p>
+<p><strong>WS-SecurityPolicy（现在只能使用WSDL first）</strong></p>
+<p>WS-SecurityPolicy 安全配置指定在客户机和服务之间交换的消息所需的安全处理。在大多数情况下，Web 服务堆栈还需要更多信息，才能对消息交换应用安全措施。例如，WS-SecurityPolicy 可能要求客户机对发送到服务器的请求消息进行签名，这为服务提供不可否认性。在这种情况下，在把消息发送到服务时，客户机 Web 服务堆栈需要通过某种方法确定用于签名的私有密钥。</p>
+<p><strong>WS-Trust</strong><br>WS-Trust 的核心是一组用来发出、更换、取消以及验证安全令牌的消息。这些消息可以由客户机通过调用一种称为 Security Token Service（STS）的特定类型的 SOAP Web 服务进行交换。它们还可以以其他的方式传递（比如以对另外一个服务的请求的安全头部的形式）。</p>
+<p><strong>WS-SecureConversation</strong><br>WS-SecureConversation规范是在WS-Security规范和WS-Trust规范之上构建的一种规范。WS-SecureConversation 将描述 Web 服务如何认证请求者消息、请求者如何认证服务以及如何互相建立认证的安全性上下文。这个规范将描述如何建立会话密钥、派生密钥和消息令牌（per-message）密钥,WS-SecureConversation 能让您保证正在进行的 Web 服务消息交换的安全，同时花费比普通 WS-Security 更少的处理开销</p>
+<p><a href="http://www.ibm.com/developerworks/cn/java/j-jws15/" target="_blank" rel="noopener">Java Web 服务: WS-Trust 和 WS-SecureConversation</a></p>
+<hr>
+<p><a href="http://cxf.apache.org/docs/cxf-dependency-graphs.html" target="_blank" rel="noopener">CXF依赖图</a></p>
+<p><a href="http://www.javatips.net/blog/2013/11/consume-simple-jax-ws-web-service-using-eclipse" target="_blank" rel="noopener">CXF WITH ECLIPSE</a></p>
+<script>
+hljs.initHighlightingOnLoad();
+</script></code></pre>
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Java/" rel="tag"># Java</a>
+          
+            <a href="/tags/WebService/" rel="tag"># WebService</a>
+          
+            <a href="/tags/Cxf/" rel="tag"># Cxf</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/07/21/Java/CXF-签名/" rel="prev" title="Cxf签名">
+                Cxf签名 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">chen biao</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">7</span>
+                    <span class="site-state-item-name">Artikel</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">16</span>
+                    <span class="site-state-item-name">Tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">chen biao</span>
+
+  
+
+  
+</div>
+
+
+
+
+  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme – <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Muse</a> v6.4.1</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.4.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.4.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.4.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.4.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.4.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
